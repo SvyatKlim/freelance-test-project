@@ -1,0 +1,152 @@
+.gallery {
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__slider {
+    margin-top: 50px;
+
+    &:before, &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 15px;
+      bottom: 0;
+      top: 0;
+      background-color: $white;
+      z-index: 10;
+    }
+
+    &:before {
+      left: 0;
+    }
+
+    &:after {
+      right: 0;
+    }
+
+    &__arrow {
+      position: absolute;
+      width: 58px;
+      height: 58px;
+      background-color: transparent;
+      border: 1px solid $light-gray;
+      cursor: pointer;
+      transition: background-color 0.4s, border-color 0.4s;
+
+      svg {
+        path {
+          transition: fill 0.4s;
+          fill: $orange;
+        }
+      }
+
+      &:hover,
+      &:focus {
+        svg {
+          path {
+            fill: $white;
+          }
+        }
+
+        background-color: $orange;
+        border-color: $orange;
+      }
+
+      &.next {
+        top: 36.2%;
+        right: -60px;
+      }
+
+      &.prev {
+        top: 36.2%;
+        left: -60px;
+
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  &__slide {
+    padding: 0 15px;
+
+    &__link {
+      color: $black;
+      letter-spacing: normal;
+
+      @media (hover: hover) {
+        &:hover {
+          .gallery__slide {
+            &__title {
+              color: $orange;
+            }
+
+            &__img img {
+              transform: scale(1.05);
+            }
+          }
+        }
+      }
+    }
+
+    &__img {
+      display: flex;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        object-fit: cover;
+        transition: all 0.5s;
+      }
+    }
+
+    &__title {
+      margin: 10px 0 5px;
+      transition: color 0.4s;
+    }
+  }
+
+  @media screen and(max-width: 1440px) {
+    &__slider__arrow {
+      &.next, &.prev {
+        width: 45px;
+        height: 45px;
+      }
+
+      &.next {
+        right: -45px;
+      }
+
+      &.prev {
+        left: -45px;
+      }
+    }
+  }
+  @media screen and (max-width: 1023px) {
+    &__slider {
+      margin: 30px -15px 0;
+      &:before {
+        content: none;
+      }
+
+      &::after {
+        content: none;
+      }
+
+      &__arrow {
+        z-index: 15;
+        display: none;
+      }
+    }
+    &__slide__img {
+      img {
+        max-height: 500px;
+      }
+    }
+
+  }
+}

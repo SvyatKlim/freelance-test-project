@@ -1,0 +1,116 @@
+.services {
+  position: relative;
+  z-index: 1;
+
+  &::after {
+    position: absolute;
+    right: 52px;
+    bottom: -43px;
+    z-index: -1;
+    width: 262px;
+    height: 192px;
+    background-image: url("../../../assets/icons/decor.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+    content: '';
+  }
+
+  &__info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    &__right {
+      width: 44.5%;
+    }
+  }
+
+  &__items {
+    display: flex;
+    margin: 0 -15px;
+    padding-top: 35px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 320px;
+    margin: 0 15px;
+    padding: 30px;
+    background-color: $white;
+    border: 1px solid $light-gray;
+
+    &__icon {
+      margin-bottom: auto;
+      padding-bottom: 60px;
+    }
+
+    &__title {
+      margin-bottom: 7px;
+    }
+
+    &__btn {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 20px;
+
+    }
+  }
+
+  @media screen and (max-width: 1680px) {
+    &__item__icon {
+      padding-bottom: 40px;
+    }
+  }
+  @media screen and (max-width: 1440px) {
+    &__item {
+      padding: 20px;
+    }
+  }
+  @media screen and (max-width: 1250px) {
+    &__items {
+      display: block;
+    }
+    &__item {
+      min-height: 310px;
+    }
+    &::after {
+      transform: scale(0.8) matrix(-1, 0, 0, 1, 0, 0);
+      right: 4px;
+      bottom: -26px;
+    }
+  }
+  @media screen and (max-width: 1023px) {
+    &__info {
+      flex-direction: column;
+
+      &__right {
+        margin-top: 20px;
+        width: 100%;
+      }
+    }
+  }
+  @media screen and (max-width: 576px) {
+    &__item {
+      min-height: 300px;
+    }
+    &::after {
+      transform: scale(0.6) matrix(-1, 0, 0, 1, 0, 0);
+      right: -42px;
+      bottom: -42px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    &::after {
+      right: -83px;
+      bottom: -35px;
+    }
+  }
+  @media screen and (max-width: 380px) {
+    &:after {
+      content: none;
+    }
+  }
+}

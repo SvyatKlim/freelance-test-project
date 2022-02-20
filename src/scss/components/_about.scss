@@ -1,0 +1,244 @@
+.about {
+  &__wrapper {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+
+    &::after {
+      position: absolute;
+      bottom: 22px;
+      left: 17px;
+      z-index: -1;
+      width: 262px;
+      height: 192px;
+      background-image: url("../../../assets/icons/decor.svg");
+      content: '';
+    }
+  }
+
+  &__left {
+    width: 50%;
+    max-width: 800px;
+    padding-right: 90px;
+
+
+    &__info {
+      margin-left: auto;
+      padding-left: 100px;
+    }
+
+    &__title {
+      margin-bottom: 30px;
+    }
+
+    &__link {
+      margin-top: 40px;
+    }
+
+    &__img {
+      display: flex;
+      margin-top: 60px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  &__right {
+    width: 50%;
+    max-width: 780px;
+
+    &__image {
+      position: relative;
+      z-index: 1;
+      margin-left: 80px;
+      overflow: hidden;
+
+      img {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+      }
+
+      //&::after {
+      //  position: absolute;
+      //  top: 0;
+      //  right: 0;
+      //  z-index: 2;
+      //  display: block;
+      //  border-top: 150px solid $white;
+      //  border-right: 700px solid transparent;
+      //  content: '';
+      //}
+    }
+
+    &__quote {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      max-width: 700px;
+      margin-top: -125px;
+      padding: 50px 50px 45px;
+      color: $white;
+      background-color: $dark-blue;
+
+      &__text {
+        padding-top: 13px;
+        padding-left: 25px;
+
+        .small-text {
+          color: rgba($white, 0.8);
+        }
+      }
+
+      &__author {
+        display: inline-flex;
+        margin-top: 17px;
+        color: $light-gray;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 22px;
+      }
+    }
+  }
+
+  @media screen and (min-width: 1921px) {
+    &__left, &__right {
+      max-width: 860px;
+    }
+  }
+  @media screen and (max-width: 1440px) {
+    &__left {
+      &__info {
+        padding-left: 40px;
+      }
+
+      &__img {
+        margin-top: 40px;
+      }
+    }
+    &__right {
+      &__quote {
+        padding: 30px 30px 30px;
+      }
+    }
+  }
+  @media screen and (max-width: 1250px) {
+    &__left {
+      padding-right: 20px;
+    }
+    &__right {
+      padding-left: 20px;
+
+      &__image {
+        margin-left: 40px;
+      }
+
+      &__quote {
+        padding: 20px;
+
+        &__icon {
+          svg {
+            transform: scale(0.9);
+          }
+        }
+
+        &__text {
+          padding-left: 15px;
+        }
+      }
+    }
+    &__wrapper:after {
+      bottom: -83px;
+      left: -91px;
+      transform: scale(0.8);
+    }
+  }
+  @media screen and (max-width: 1023px) {
+    &__wrapper {
+      flex-direction: column;
+
+      &.container-inner {
+        padding-left: 0;
+      }
+
+      &::after {
+        bottom: -82px;
+        left: -118px;
+        transform: scale(0.7);
+      }
+    }
+    &__left {
+      width: 100%;
+      padding: 0;
+
+      &__img {
+        display: none;
+      }
+
+      &__info {
+        padding-left: 0;
+      }
+    }
+    &__right {
+      width: 100%;
+      padding: 0;
+
+
+      &__image {
+        img {
+          object-fit: cover;
+        }
+      }
+
+      &__quote {
+        margin-top: -160px;
+      }
+    }
+  }
+  @media screen and (max-width: 576px) {
+    &__left {
+      &__title {
+        margin-bottom: 20px;
+      }
+
+      &__link {
+        margin-top: 30px;
+      }
+    }
+    &__right {
+      &__quote {
+        margin-top: -40px;
+      }
+
+    }
+    &__wrapper {
+      &::after {
+        bottom: -85px;
+        left: -139px;
+        transform: scale(0.6);
+      }
+    }
+  }
+  @media screen and (max-width: 380px) {
+    &__right {
+      &__image {
+        display: none;
+      }
+
+      &__quote {
+        margin-top: 20px;
+      }
+    }
+    &__wrapper {
+      &::after {
+        content: none;
+      }
+    }
+
+  }
+}

@@ -1,0 +1,333 @@
+.intro {
+  position: relative;
+
+  &__slider {
+    position: relative;
+    cursor: grab;
+
+    .slick-dots {
+      top: 50%;
+      right: 100px;
+      flex-direction: column;
+      align-items: flex-start;
+      transform: translate(0, -50%);
+
+      li {
+        margin-bottom: 40px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      .dot {
+        position: relative;
+        background-color: rgba($white, 0.6);
+
+        &::before {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          display: block;
+          width: 7px;
+          height: 7px;
+          background-color: $white;
+          border-radius: 50%;
+          transform: translate(-50%, -50%);
+          opacity: 0;
+          transition: all ease-in-out;
+          content: '';
+        }
+      }
+
+      .slick-active {
+        .dot {
+          &::before {
+            width: 11px;
+            height: 11px;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  &__slide {
+    position: relative;
+
+    &__inner {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 2;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      height: 100%;
+    }
+
+    &__img {
+      display: flex;
+      width: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        max-height: 950px;
+        object-fit: cover;
+      }
+    }
+
+    &__content {
+      max-width: 850px;
+      padding-bottom: 200px;
+      text-align: center;
+
+      &__title {
+        margin-bottom: 25px;
+        color: $white;
+      }
+
+      &__description {
+        color: rgba($white, 0.8);
+      }
+    }
+  }
+
+  &__buttons {
+    position: absolute;
+    bottom: 75px;
+    display: flex;
+    width: 100%;
+    border-top: 1px solid rgba($white, 0.2);
+
+    &__cost,
+    &__projects {
+      width: 50%;
+      height: 111px;
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+        padding: 20px 100px;
+        color: $light-gray;
+        border-left: 1px solid rgba($white, 0.2);
+        transition: background-color 0.4s;
+        transition-delay: 100ms;
+
+        &::before {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          z-index: 1;
+          display: block;
+          width: 58px;
+          height: 0;
+          border-right: 54px solid transparent;
+          border-bottom: 127px solid $dark-orange;
+          transform: rotate(-90deg);
+          transform-origin: 50% 56%;
+          opacity: 0;
+          transition: opacity 0.3s;
+          content: '';
+        }
+
+        span {
+          position: relative;
+          z-index: 2;
+        }
+      }
+    }
+
+    &__projects {
+      width: 50%;
+    }
+  }
+
+  @media (hover: hover) {
+    &__buttons {
+      &__cost a,
+      &__projects a {
+        position: relative;
+
+        &:hover {
+          background-color: $orange;
+          transition-delay: 0ms;
+
+          &::before {
+            opacity: 1;
+            transition: opacity 0.4s;
+            transition-delay: 100ms;
+          }
+        }
+      }
+    }
+  }
+
+  body.ie & {
+    &__buttons {
+      &__cost a,
+      &__projects a {
+        position: relative;
+
+        &:hover {
+          background-color: $orange;
+          transition-delay: 0ms;
+
+          &::before {
+            opacity: 1;
+            transition: opacity 0.4s;
+            transition-delay: 100ms;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1680px) {
+    &__buttons {
+      &__cost,
+      &__projects {
+        height: 90px;
+      }
+    }
+
+    &__slide__img {
+      img {
+        height: 100vh;
+        min-height: 700px;
+      }
+    }
+
+    &__buttons {
+      bottom: 60px;
+    }
+  }
+
+  @media screen and (max-width: 1440px) {
+    &__slider {
+      .slick-dots .slick-active .dot::before {
+        width: 9px;
+        height: 9px;
+      }
+    }
+
+    &__slide__content__description {
+      font-size: 18px;
+    }
+  }
+
+  @media screen and (max-width: 1250px) {
+    &__slide__img img {
+      min-height: 600px;
+      max-height: 1024px;
+    }
+
+    &__slide__content {
+      padding-bottom: 40%;
+    }
+
+    &__slider .slick-dots {
+      position: absolute;
+      right: 6%;
+      width: auto;
+
+      li .dot {
+        border: none;
+      }
+    }
+
+    &__buttons__cost,
+    &__buttons__projects {
+      height: 70px;
+
+      a {
+        padding: 20px 70px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 1023px) {
+    &__buttons {
+      bottom: 50px;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    &__slide__content__description {
+      font-size: 16px;
+    }
+
+    &__buttons__cost,
+    &__buttons__projects {
+      height: 60px;
+
+      a {
+        padding: 20px;
+      }
+    }
+    &__slider {
+      .slick-dots {
+        flex-direction: row;
+        bottom: 10%;
+        right: 50%;
+        top: auto;
+        left: auto;
+        transform: translate(50%);
+      }
+    }
+  }
+
+  @media screen and (max-width: 576px) {
+    &__slide__content {
+      padding-bottom: 50%;
+    }
+
+    &__buttons {
+      bottom: 40px;
+
+      a span {
+        display: none;
+      }
+    }
+  }
+
+  @media screen and (max-width: 420px) {
+    &__buttons {
+      position: relative;
+      bottom: auto;
+      flex-wrap: wrap;
+      border-top: none;
+
+      &__cost,
+      &__projects {
+        position: relative;
+        width: 100%;
+        height: auto;
+        margin-top: 2px;
+        background-color: $orange;
+
+        a {
+          padding: 20px 30px;
+
+          &::before {
+            width: 28px;
+            height: 0;
+            border-right: 25px solid transparent;
+            border-bottom: 63px solid $dark-orange;
+            opacity: 1;
+          }
+
+          span {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

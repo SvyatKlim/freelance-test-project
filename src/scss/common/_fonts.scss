@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'VW Head';
+  src: local('VW Head Bold'), local('VWHead-Bold'),
+  url('../../../assets/fonts/VWHead-Bold.woff2') format('woff2'),
+  url('../../../assets/fonts/VWHead-Bold.woff') format('woff'),
+  url('../../../assets/fonts/VWHead-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'VW Head';
+  src: local('VW Head'), local('VWHead'),
+  url('../../../assets/fonts/VWHead.woff2') format('woff2'),
+  url('../../../assets/fonts/VWHead.woff') format('woff'),
+  url('../../../assets/fonts/VWHead.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'VW Head';
+  src: local('VW Head Light'), local('VWHead-Light'),
+  url('../../../assets/fonts/VWHead-Light.woff2') format('woff2'),
+  url('../../../assets/fonts/VWHead-Light.woff') format('woff'),
+  url('../../../assets/fonts/VWHead-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}

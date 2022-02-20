@@ -1,0 +1,148 @@
+.promo {
+  position: relative;
+  z-index: 3;
+
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 100px;
+    border-top: 4px solid $orange;
+  }
+
+  &__image {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      left: -160px;
+      bottom: -79px;
+      z-index: -1;
+      width: 262px;
+      height: 192px;
+      background-image: url("../../../assets/icons/decor.svg");
+      content: '';
+    }
+  }
+
+  &__info {
+    padding-left: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__title {
+      margin-bottom: 22px;
+    }
+
+
+    &__accordion {
+      margin-top: 25px;
+      color: $orange;
+      display: inline-flex;
+      align-items: center;
+      transition: color 0.4s;
+
+      svg {
+        margin-left: 7px;
+
+        path {
+          stroke: $orange;
+          transition: stroke 0.4s;
+        }
+      }
+
+      &__hidden {
+        display: none;
+      }
+
+      .more-content {
+        display: inline-flex;
+      }
+
+      .less-content {
+        display: none;
+      }
+
+      &.active {
+        .more-content {
+          display: none;
+        }
+
+        .less-content {
+          display: inline-flex;
+        }
+
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          color: $dark-blue;
+
+          svg path {
+            stroke: $dark-blue;;
+          }
+        }
+      }
+
+      body.ie & {
+        &:hover {
+          color: $dark-blue;
+
+          svg path {
+            stroke: $dark-blue;;
+          }
+        }
+      }
+    }
+  }
+
+  &__image {
+    display: flex;
+  }
+
+  @media screen and (max-width: 1680px) {
+    padding-top: 80px;
+  }
+  @media screen and (max-width: 1440px) {
+    &__info {
+      padding-left: 60px;
+      width: 50%;
+    }
+    &__image {
+      width: 50%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  @media screen and (max-width: 1250px) {
+    &__wrapper {
+      padding-top: 40px;
+      flex-direction: column;
+    }
+    &__image {
+      width: 100%;
+
+      &::after {
+        content: none;
+      }
+    }
+    &__info {
+      width: 100%;
+      padding: 40px 0 0;
+    }
+  }
+  @media screen and (max-width: 1023px) {
+    &__info {
+      padding: 20px 0 0;
+    }
+  }
+}

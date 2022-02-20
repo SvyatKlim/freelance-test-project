@@ -1,0 +1,154 @@
+.advantages {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+
+    &:after {
+      content: '';
+      width: 262px;
+      height: 192px;
+      background-image: url("../../../assets/icons/decor.svg");
+      position: absolute;
+      left: 17px;
+      bottom: -78px;
+      z-index: -1;
+    }
+  }
+
+  &__img {
+    display: flex;
+    padding-right: 95px;
+    width: 50%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+
+  &__items {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    width: 50%;
+    margin-top: 50px;
+
+    &:nth-child(even) {
+      padding-left: 35px;
+    }
+
+    &:nth-child(odd) {
+      padding-right: 35px;
+    }
+
+    &__icon {
+      display: flex;
+      height: 40px;
+    }
+
+    &__title {
+      margin-top: 20px;
+      margin-bottom: 2px;
+
+      &:first-child {
+        margin-top: 15px;
+      }
+
+    }
+  }
+
+  @media screen and (min-width: 2100px) {
+    &__right {
+      max-width: 860px;
+      margin-left: auto;
+    }
+  }
+  @media screen and (max-width: 1440px) {
+    &__item {
+      margin-top: 35px;
+
+      &:nth-child(odd) {
+        padding-right: 20px;
+      }
+
+      &:nth-child(even) {
+        padding-left: 20px;
+      }
+    }
+  }
+  @media screen and (max-width: 1440px) {
+    &__img {
+      padding-right: 60px;
+    }
+    &__wrapper:after {
+      transform: scale(0.8);
+      bottom: -7px;
+      left: -91px;
+    }
+  }
+  @media screen and (max-width: 1023px) {
+    &__wrapper.container-inner {
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0;
+
+      &::after {
+        content: none;
+      }
+    }
+    &__right {
+      width: 100%;
+      order: 1;
+    }
+    &__img {
+      width: 100%;
+      order: 2;
+      display: none;
+    }
+  }
+  @media screen and (max-width: 576px) {
+    &__item {
+      &:nth-child(odd) {
+        padding-right: 10px;
+      }
+
+      &:nth-child(even) {
+        padding-left: 10px;
+      }
+    }
+  }
+  @media screen and (max-width: 480px) {
+    &__item {
+      width: 100%;
+      position: relative;
+      display: flex;
+
+      &:nth-child(odd) {
+        padding-right: 0;
+      }
+
+      &:nth-child(even) {
+        padding-left: 0;
+      }
+
+      &__title:first-child {
+        margin-top: 0;
+      }
+
+      &__icon {
+        padding-right: 10px;
+        width: 45px;
+      }
+    }
+  }
+}
